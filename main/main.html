@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Игра угадай число</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="main">
+        <div class="computerWord">
+            <span class="wordOfComputer" id="word"></span>
+        </div>
+        <div class="mainContent">
+            <h1>Угадай слово</h1>
+            <input id="myWord" type="text" class="wordInput">
+            <p></p>
+            <button onclick="check()" class="start">Угадать</button>
+            <div>
+                <h1>Ты угадал слов - <span class="win" id="win"></span></h1>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="main.js"></script>
+</html>
