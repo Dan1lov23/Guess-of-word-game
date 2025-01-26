@@ -1,0 +1,20 @@
+body {
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.main {
+    margin-top: 40vh;
+}
+
+.startButton {
+    font-size: 25px;
+    width: 200px;
+    height: 40px;
+}
+
+.startButton:hover {
+    background-color: forestgreen;
+    border-color: forestgreen;
+    border-radius: 5px;
+}
