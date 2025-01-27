@@ -1,6 +1,8 @@
 let winCounter = 0;
-let wordsArray = ["котик", "арбуз", "чурка", "..."];
+let wordsArray = ["котик", "арбуз", "аргентина", "германия" , "."];
 let counter = 0;
+let allWinCounter = wordsArray.length;
+let checkLimit = 0;
 
 function shuffleWord(word) {
     let letters = word.split('');
@@ -25,9 +27,25 @@ function check() {
         let shuffleMyWord = shuffleWord(word);
         document.getElementById("word").innerHTML = shuffleMyWord;
         winCounter++;
-        document.getElementById("win").innerHTML = winCounter;
-    } else if (wordsArray[counter] === "...") {
-        alert("Игра закончна");
+        document.getElementById("win").innerHTML = `${winCounter} / ${wordsArray.length}`;
+    } else if (wordsArray[counter] === ".") {
+        document.getElementById("result").innerHTML = `Вы угадали все слова и победили`;
+        alert("Игра закончна" && allWinCounter === winCounter);
     }
 }
 
+let isDarkTheme = false;
+
+function themeChange() {
+    const body = document.body;
+
+    if (isDarkTheme) {
+        body.classList.remove('dark-theme');
+        body.classList.add('light-theme');
+    } else {
+        body.classList.remove('light-theme');
+        body.classList.add('dark-theme');
+    }
+
+    isDarkTheme = !isDarkTheme;
+}
