@@ -6,17 +6,20 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <div class="main">
+    <div class="changeThemeButton">
+        <button class="themeButton" onclick="themeChange()">🌚</button>
+    </div>
+    <div class="main" id="main">
         <div class="computerWord">
             <span class="wordOfComputer" id="word"></span>
         </div>
         <div class="mainContent">
             <h1>Угадай слово</h1>
             <input id="myWord" type="text" class="wordInput">
-            <p></p>
             <button onclick="check()" class="start">Угадать</button>
-            <div>
-                <h1>Ты угадал слов - <span class="win" id="win"></span></h1>
+            <div class="winResult">
+                <h1>Слов угадано - <span class="win" id="win">0 / 4</span></h1>
+                <span id="result"></span>
             </div>
         </div>
     </div>
