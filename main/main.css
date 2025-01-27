@@ -1,6 +1,6 @@
 .main {
     text-align: center;
-    margin-top: 300px;
+    margin-top: 250px;
     border: black solid 4px;
     margin-left: 550px;
     margin-right: 550px;
@@ -13,7 +13,8 @@
 }
 
 .wordOfComputer {
-    font-size: 20px;
+    font-size: 30px;
+    border: black solid 4px;
 }
 
 .wordInput {
@@ -24,6 +25,7 @@
     font-size: 25px;
     width: 200px;
     height: 40px;
+    margin-top: 20px;
 }
 
 .start:hover {
@@ -32,3 +34,28 @@
     border-radius: 5px;
 }
 
+body {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.light-theme {
+    background-color: white;
+    color: black;
+    .main {
+        border: black solid 4px;
+    }
+    .wordOfComputer {
+        border: black solid 4px;
+    }
+}
+
+.dark-theme {
+    background-color: black;
+    color: white;
+    .main {
+        border: white solid 4px;
+    }
+    .wordOfComputer {
+        border: white solid 4px;
+    }
+}
