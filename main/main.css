@@ -1,61 +1,82 @@
-.main {
-    text-align: center;
-    margin-top: 250px;
-    border: black solid 4px;
-    margin-left: 550px;
-    margin-right: 550px;
-    border-radius: 15px;
-    font-family: sans-serif;
-}
-
-.computerWord {
-    margin-top: 20px;
-}
-
-.wordOfComputer {
-    font-size: 30px;
-    border: black solid 4px;
-}
-
-.wordInput {
-    width: 200px;
-}
-
-.start {
-    font-size: 25px;
-    width: 200px;
-    height: 40px;
-    margin-top: 20px;
-}
-
-.start:hover {
-    background-color: forestgreen;
-    border-color: forestgreen;
-    border-radius: 5px;
-}
-
 body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
     transition: background-color 0.3s, color 0.3s;
 }
 
-.light-theme {
-    background-color: white;
-    color: black;
-    .main {
-        border: black solid 4px;
-    }
-    .wordOfComputer {
-        border: black solid 4px;
-    }
+.main {
+    text-align: center;
+    margin: 100px auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.computerWord {
+    margin: 20px 0;
+}
+
+.wordOfComputer {
+    font-size: 24px;
+    border: 2px dashed #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    background-color: #fafafa;
+}
+
+.wordInput {
+    width: 90%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.start {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.start:hover {
+    background-color: #0056b3;
+}
+
+.winResult {
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.themeButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
 }
 
 .dark-theme {
-    background-color: black;
-    color: white;
-    .main {
-        border: white solid 4px;
-    }
-    .wordOfComputer {
-        border: white solid 4px;
-    }
+    background-color: #333;
+    color: #ffffff;
+}
+
+.light-theme {
+    background-color: #f8f8f8;
+    color: #000;
 }
