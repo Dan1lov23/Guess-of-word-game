@@ -1,8 +1,7 @@
 let winCounter = 0;
-let wordsArray = ["котик", "арбуз", "аргентина", "германия" , "."];
+let wordsArray = ["котик", "арбуз", "расстрел", "петух", "Иерихон", "молоко", "гренка"];
 let counter = 0;
 let allWinCounter = wordsArray.length;
-let checkLimit = 0;
 
 function shuffleWord(word) {
     let letters = word.split('');
@@ -13,7 +12,6 @@ function shuffleWord(word) {
     return letters.join('');
 }
 
-
 let word = wordsArray[counter];
 let shuffleMyWord = shuffleWord(word);
 document.getElementById("word").innerHTML = shuffleMyWord;
@@ -21,18 +19,26 @@ document.getElementById("word").innerHTML = shuffleMyWord;
 function check() {
     let myWord = document.getElementById("myWord").value;
     if (myWord === wordsArray[counter]) {
-        console.log(myWord);
+        winCounter++;
         counter++;
+    }
+    if (counter < allWinCounter) {
         let word = wordsArray[counter];
         let shuffleMyWord = shuffleWord(word);
         document.getElementById("word").innerHTML = shuffleMyWord;
-        winCounter++;
-        document.getElementById("win").innerHTML = `${winCounter} / ${wordsArray.length}`;
-    } else if (wordsArray[counter] === ".") {
-        document.getElementById("result").innerHTML = `Вы угадали все слова и победили`;
-        alert("Игра закончна" && allWinCounter === winCounter);
+    } else {
+        document.getElementById("result").innerText = `Вы угадали все слова и победили`;
+        alert("Игра закончена");
     }
+    document.getElementById("win").innerHTML = `${winCounter} / ${allWinCounter}`;
+    document.getElementById('myWord').value = '';
 }
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        check();
+    }
+});
 
 let isDarkTheme = false;
 
