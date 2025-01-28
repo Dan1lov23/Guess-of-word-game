@@ -31,7 +31,7 @@ body {
 }
 
 .wordInput {
-    width: 90%;
+    width: 92%;
     padding: 10px;
     margin-top: 10px;
     border: 2px solid #ccc;
@@ -58,7 +58,6 @@ body {
 
 .winResult {
     margin-top: 20px;
-    font-size: 15px;
 }
 
 .themeButton {
@@ -71,12 +70,34 @@ body {
     font-size: 24px;
 }
 
-.dark-theme {
-    background-color: #333;
-    color: #ffffff;
+.light-theme {
+    .computerWord {
+        color: black;
+    }
+    background-color: white;
+    color: white;
+    .main {
+        border: black solid 4px;
+        background-color: white;
+        color: black;
+    }
+    .wordOfComputer {
+        border: black solid 4px;
+    }
 }
 
-.light-theme {
-    background-color: #f8f8f8;
-    color: #000;
+.dark-theme {
+    .computerWord {
+        color: black;
+    }
+    background-color: black;
+    color: black;
+    .main {
+        border: white solid 4px;
+        background-color: black;
+        color: white;
+    }
+    .wordOfComputer {
+        border: white solid 4px;
+    }
 }
