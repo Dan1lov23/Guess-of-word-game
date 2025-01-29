@@ -7,7 +7,10 @@
 </head>
 <body>
     <div class="changeThemeButton">
-        <button class="themeButton" onclick="themeChange()">🌚</button>
+        <button class="themeButton" onclick="themeChange()"><span id="face">🌚</span></button>
+    </div>
+    <div class="music">
+        <button class="musicButton" onclick="music()">🎧</span></button>
     </div>
     <div class="main" id="main">
         <div class="computerWord">
@@ -18,11 +21,12 @@
             <input id="myWord" type="text" class="wordInput">
             <button onclick="check()" class="start">Угадать</button>
             <div class="winResult">
-                <h1>Слов угадано - <span class="win" id="win">0 / 4</span></h1>
+                <h1>Слов угадано - <span class="win" id="win"></span></h1>
                 <span id="result"></span>
             </div>
         </div>
     </div>
 </body>
+<audio src="/audio/48bb90af8e1e401.mp3" id="audioOne"></audio>
 <script src="main.js"></script>
 </html>
