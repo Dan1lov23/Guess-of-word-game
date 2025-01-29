@@ -50,10 +50,11 @@ function themeChange() {
     if (isDarkTheme) {
         body.classList.remove('dark-theme');
         body.classList.add('light-theme');
+        document.getElementById("face").innerText = "🌚";
     } else {
         body.classList.remove('light-theme');
         body.classList.add('dark-theme');
-
+        document.getElementById("face").innerText = "🌝";
     }
 
     isDarkTheme = !isDarkTheme;
