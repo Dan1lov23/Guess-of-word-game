@@ -21,6 +21,8 @@ function check() {
     if (myWord === wordsArray[counter]) {
         winCounter++;
         counter++;
+    } else if (myWord !== wordsArray[counter]) {
+        counter++;
     }
     if (counter < allWinCounter) {
         let word = wordsArray[counter];
@@ -51,6 +53,7 @@ function themeChange() {
     } else {
         body.classList.remove('light-theme');
         body.classList.add('dark-theme');
+
     }
 
     isDarkTheme = !isDarkTheme;
