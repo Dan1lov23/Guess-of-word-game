@@ -59,3 +59,19 @@ function themeChange() {
 
     isDarkTheme = !isDarkTheme;
 }
+
+// функция для проигрывания музыки
+
+const audio = document.getElementById('audioOne');
+
+let musicCheck = 0;
+
+function music() {
+    if (musicCheck % 2 === 0) {
+        audio.currentTime = 0; // Скидываем время на начало
+        audio.play();
+    } else {
+        audio.pause();
+    }
+    musicCheck++;
+}
