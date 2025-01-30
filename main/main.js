@@ -1,7 +1,6 @@
 let winCounter = 0;
-let wordsArray = ["котик", "арбуз", "расстрел", "петух", "Иерихон", "молоко", "гренка"];
+let wordsArray = ["."];
 let counter = 0;
-let allWinCounter = wordsArray.length;
 
 function shuffleWord(word) {
     let letters = word.split('');
@@ -15,20 +14,37 @@ function shuffleWord(word) {
 let word = wordsArray[counter];
 let shuffleMyWord = shuffleWord(word);
 document.getElementById("word").innerHTML = shuffleMyWord;
+let allWinCounter = 0;
+
+function levelOne() {
+    wordsArray = ["хол", "гренка", "мяу"];
+    document.getElementById("word").innerHTML = wordsArray[0];
+    allWinCounter = wordsArray.length;
+}
+
+function levelTwo() {
+    wordsArray = ["яблоко", "шалаш", "лак", "абобус", "амогус"];
+    document.getElementById("word").innerHTML = wordsArray[0];
+    allWinCounter = wordsArray.length;
+}
+
+function levelThree() {
+    wordsArray = ["расстрел", "подразвёрстка", "шашлык", "экраспариация", "очко"];
+    document.getElementById("word").innerHTML = wordsArray[0];
+    allWinCounter = wordsArray.length;
+}
 
 function check() {
     let myWord = document.getElementById("myWord").value;
     if (myWord === wordsArray[counter]) {
         winCounter++;
         counter++;
-    } else if (myWord !== wordsArray[counter]) {
-        counter++;
     }
     if (counter < allWinCounter) {
         let word = wordsArray[counter];
         let shuffleMyWord = shuffleWord(word);
         document.getElementById("word").innerHTML = shuffleMyWord;
-    } else {
+    } else if (counter === allWinCounter) {
         document.getElementById("result").innerText = `Вы угадали все слова и победили`;
         alert("Игра закончена");
     }
@@ -42,19 +58,28 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+// функция для смены темы
+
 let isDarkTheme = false;
 
 function themeChange() {
     const body = document.body;
+    const level = document.getElementById("levelTitle");
 
     if (isDarkTheme) {
         body.classList.remove('dark-theme');
         body.classList.add('light-theme');
         document.getElementById("face").innerText = "🌚";
+        Array.from(level.getElementsByTagName('h1')).forEach((h1) => {
+            h1.style.color = 'black';
+        });
     } else {
         body.classList.remove('light-theme');
         body.classList.add('dark-theme');
         document.getElementById("face").innerText = "🌝";
+        Array.from(level.getElementsByTagName('h1')).forEach((h1) => {
+            h1.style.color = 'white';
+        });
     }
 
     isDarkTheme = !isDarkTheme;
@@ -68,7 +93,7 @@ let musicCheck = 0;
 
 function music() {
     if (musicCheck % 2 === 0) {
-        audio.currentTime = 0; // Скидываем время на начало
+        audio.currentTime = 0;
         audio.play();
     } else {
         audio.pause();
