@@ -63,8 +63,17 @@ body {
 
 .themeButton {
     position: absolute;
-    top: 20px;
+    margin-top: 50px;
     right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.musicButton {
+    margin-top: 10px;
+    margin-left: 1417px;
     background: none;
     border: none;
     cursor: pointer;
@@ -101,4 +110,29 @@ body {
     .wordOfComputer {
         border: white solid 4px;
     }
+}
+
+.level {
+    text-align: center;
+}
+
+.levelMain {
+    margin-left: 20px;
+    button {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+.levelButton {
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.levelButton:hover {
+    color: #0056b3;
 }
