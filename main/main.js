@@ -1,6 +1,7 @@
 let winCounter = 0;
 let wordsArray = ["."];
 let counter = 0;
+let youLevel = 0;
 
 function shuffleWord(word) {
     let letters = word.split('');
@@ -20,18 +21,27 @@ function levelOne() {
     wordsArray = ["хол", "гренка", "мяу"];
     document.getElementById("word").innerHTML = wordsArray[0];
     allWinCounter = wordsArray.length;
+    youLevel++;
+    document.getElementById("youLevelTitle").innerText = `Уровень сложности - ${youLevel}`;
+    youLevel = 0;
 }
 
 function levelTwo() {
     wordsArray = ["яблоко", "шалаш", "лак", "абобус", "амогус"];
     document.getElementById("word").innerHTML = wordsArray[0];
     allWinCounter = wordsArray.length;
+    youLevel += 2;
+    document.getElementById("youLevelTitle").innerText = `Уровень сложности - ${youLevel}`;
+    youLevel = 0;
 }
 
 function levelThree() {
     wordsArray = ["расстрел", "подразвёрстка", "шашлык", "экраспариация", "очко"];
     document.getElementById("word").innerHTML = wordsArray[0];
     allWinCounter = wordsArray.length;
+    youLevel += 3;
+    document.getElementById("youLevelTitle").innerText = `Уровень сложности - ${youLevel}`;
+    youLevel = 0;
 }
 
 function check() {
