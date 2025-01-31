@@ -136,3 +136,9 @@ body {
 .levelButton:hover {
     color: #0056b3;
 }
+
+.levelTitle {
+    text-align: center;
+    font-size: 20px;
+    color: black;
+}
