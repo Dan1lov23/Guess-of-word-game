@@ -1,7 +1,8 @@
 let winCounter = 0;
-let wordsArray = ["."];
+let wordsArray = [];
 let counter = 0;
 let youLevel = 0;
+let allWinCounter = 0;
 
 function shuffleWord(word) {
     let letters = word.split('');
@@ -12,54 +13,67 @@ function shuffleWord(word) {
     return letters.join('');
 }
 
-let word = wordsArray[counter];
-let shuffleMyWord = shuffleWord(word);
-document.getElementById("word").innerHTML = shuffleMyWord;
-let allWinCounter = 0;
+function updateWordDisplay() {
+    if (counter < allWinCounter) {
+        let word = wordsArray[counter];
+        let shuffledWord = shuffleWord(word);
+        document.getElementById("word").innerHTML = shuffledWord;
+    }
+}
 
 function levelOne() {
-    wordsArray = ["хол", "гренка", "мяу"];
-    document.getElementById("word").innerHTML = wordsArray[0];
+    resetGame();
+    wordsArray = ["хол", "гренка", "кот"];
     allWinCounter = wordsArray.length;
-    youLevel++;
+    youLevel = 1;
     document.getElementById("youLevelTitle").innerText = `Уровень сложности - ${youLevel}`;
-    youLevel = 0;
+    updateWordDisplay();
 }
 
 function levelTwo() {
-    wordsArray = ["яблоко", "шалаш", "лак", "абобус", "амогус"];
-    document.getElementById("word").innerHTML = wordsArray[0];
+    resetGame();
+    wordsArray = ["яблоко", "шалаш", "лак", "дом", "шаурма"];
     allWinCounter = wordsArray.length;
-    youLevel += 2;
+    youLevel = 2;
     document.getElementById("youLevelTitle").innerText = `Уровень сложности - ${youLevel}`;
-    youLevel = 0;
+    updateWordDisplay();
 }
 
 function levelThree() {
-    wordsArray = ["расстрел", "подразвёрстка", "шашлык", "экраспариация", "очко"];
-    document.getElementById("word").innerHTML = wordsArray[0];
+    resetGame();
+    wordsArray = ["сублимация", "ходьба", "шашлык", "экраспариация", "калибри"];
     allWinCounter = wordsArray.length;
-    youLevel += 3;
+    youLevel = 3;
     document.getElementById("youLevelTitle").innerText = `Уровень сложности - ${youLevel}`;
-    youLevel = 0;
+    updateWordDisplay();
+}
+
+function resetGame() {
+    winCounter = 0;
+    counter = 0;
+    document.getElementById('result').innerHTML = '';
 }
 
 function check() {
-    let myWord = document.getElementById("myWord").value;
+    let myWord = document.getElementById("myWord").value.trim();
+
     if (myWord === wordsArray[counter]) {
         winCounter++;
-        counter++;
     }
+
+    counter++;
+
     if (counter < allWinCounter) {
-        let word = wordsArray[counter];
-        let shuffleMyWord = shuffleWord(word);
-        document.getElementById("word").innerHTML = shuffleMyWord;
-    } else if (counter === allWinCounter) {
-        document.getElementById("result").innerText = `Вы угадали все слова и победили`;
+        updateWordDisplay();
+    } else if (winCounter === allWinCounter) {
+        document.getElementById("result").innerText = `Вы угадали все слова и победили!`;
         alert("Игра закончена");
+    } else {
+        document.getElementById('result').innerHTML = `Вы угадали ${winCounter} / ${allWinCounter} и не победили.`;
     }
+
     document.getElementById("win").innerHTML = `${winCounter} / ${allWinCounter}`;
-    document.getElementById('myWord').value = '';
+    document.getElementById("myWord").value = '';
 }
 
 document.addEventListener('keydown', function(event) {
@@ -67,8 +81,6 @@ document.addEventListener('keydown', function(event) {
         check();
     }
 });
-
-// функция для смены темы
 
 let isDarkTheme = false;
 
@@ -95,10 +107,7 @@ function themeChange() {
     isDarkTheme = !isDarkTheme;
 }
 
-// функция для проигрывания музыки
-
 const audio = document.getElementById('audioOne');
-
 let musicCheck = 0;
 
 function music() {
